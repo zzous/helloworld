@@ -17,6 +17,27 @@ const routes = [
                 component: () => import('@/views/sample/SectionPage.vue')
 
             },
+            {
+                path: '/member',
+                name: 'Member Register',
+                // component: () => import('@/views/member/MemberRegister.vue')
+                redirect: '/member/list',
+                children: [
+                    {
+                        path: 'list',
+                        name: 'Member List',
+                        component: () => import('@/views/member/MemberList.vue')
+        
+                    },
+                    {
+                        path: 'join',
+                        name: 'Member Register',
+                        component: () => import('@/views/member/MemberRegister.vue')
+        
+                    }
+                ]
+
+            },
 
             {
                 path: '/boxlayout',

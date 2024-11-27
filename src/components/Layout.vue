@@ -1,5 +1,5 @@
 <template>
-    <div :style="`height:calc(100% - ${state.footerH}px);`">
+    <div :style="`height:calc(100% - 30px);`">
         <div :class="['layout', {flip:state.flipMenu}]">
             <header>
                 <div class="myinfo" >
@@ -23,22 +23,19 @@
             <div class="contents">
                 <div class="lnb">
                     <div class="lnb-menu-list">
-                        <h1> {{state.breadcrumbs[(state.breadcrumbs.length -1)]?.menu}}</h1>
+                        <!-- <h1> {{state.breadcrumbs[(state.breadcrumbs.length -1)]?.menu}}</h1> -->
                         <ul>
-                            <!-- 1depth -->
                             <li v-for="(item, index) in state.menuList" :key="index" :class="['depth1',{depth:item.depth.length > 0}, {thispage:state.thisPage == item.pagelink}]">
                                 <button type="button" class="menutext" @click="menuClick(item.pagelink,'depth1', index)">
                                     <em class="text">{{ item.menu }}</em>
                                 </button>
                                 <ul v-if="item.depth.length > 0">
-                                    <!-- 2depth -->
                                     <li v-for="(depth, idx) in item.depth" :key="idx" :class="['depth2', {depth:depth.depth.length > 0}, {thispage:state.thisPage == depth.pagelink}]">
                                         <button type="button" class="menutext" @click="menuClick(depth.pagelink,'depth2', index, idx)">
                                             <em class="text">{{ depth.menu }}</em>
                                         </button>
                                         <ul v-if="depth.depth.length > 0">
                                             
-                                            <!-- 3depth -->
                                             <li v-for="(sub, i) in depth.depth" :key="i" :class="['depth3', {thispage:state.thisPage == sub.pagelink }]">
                                                 <button class="menutext" @click="menuClick(sub.pagelink,'depth3', index, idx, i)">
                                                     <em  class="text"> {{ sub.menu }}</em>
@@ -50,7 +47,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button :class="['nav-toggle', {hide:state.flipMenu}]" @click="onChangeNavi"></button>
+                    <!-- <button :class="['nav-toggle', {hide:state.flipMenu}]" @click="onChangeNavi"></button> -->
                 </div>
                 <div class="contentwrap">
                     <div class="content">
@@ -85,6 +82,19 @@ const router = useRouter();
 const route = useRoute();
 const state = reactive({
     menuList: [
+        {menu: 'DEV',
+            pagelink: null,
+            depth: [
+                { menu: 'MEMBER LIST',
+                    pagelink: '/member/list',
+                    depth: []
+                }
+                // { menu: 'MEMBER REGISTER',
+                //     pagelink: '/member/join',
+                //     depth: []
+                // }
+            ]
+        },
         {menu: '샘플 페이지',
             pagelink: null,
             depth: [

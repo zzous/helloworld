@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
         server: {
             // proxy: {
             //     '/api': {
-            //         target: 'https://dev-api-adm.kb-ocare.co.kr',
+            //         target: process.env.VITE_APP_BASE_API,
             //         changeOrigin: true,
             //         secure: false,
             //         rewrite: path => path.replace(/^\/api/, '')

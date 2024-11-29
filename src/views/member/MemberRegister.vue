@@ -13,80 +13,45 @@
       /> -->
       <!-- {{ memberList }} -->
       member register
-      <input type="text"
-        :label="'name'"
-        :placeholder="'name'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.name"
-      />
-      <input type="text"
-        :label="'password'"
-        :placeholder="'password'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.password"
-      />
-      <input type="text"
-        :label="'email'"
-        :placeholder="'email'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.email"
-      />
-      <input type="text"
-        :label="'phone'"
-        :placeholder="'phone'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.phone"
-      />
-      <input type="text"
-        :label="'address'"
-        :placeholder="'address'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.address"
-      />
-      <input type="text"
-        :label="'city'"
-        :placeholder="'city'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.city"
-      />
-      <input type="text"
-        :label="'state'"
-        :placeholder="'state'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.state"
-      />
-      <input type="text"
-        :label="'dateOfBirth'"
-        :placeholder="'dateOfBirth'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.dateOfBirth"
-      />
-      <input type="text"
-        :label="'gender'"
-        :placeholder="'gender'"
-        :icon="false"
-        :single="false"
-        :error="'다시 입력해 주세요'"
-        v-model="formData.gender"
-      />
-
-      <button type="button" class="btn posi" @click="setMember">가입</button>
+      <div class="labelbox mt-20">name</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'name'" :placeholder="'name'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.name" />
+      </div>
+      <div class="labelbox mt-20">password</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'password'" :placeholder="'password'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.password" />
+      </div>
+      <div class="labelbox mt-20">email</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'email'" :placeholder="'email'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.email" />
+      </div>
+      <div class="labelbox mt-20">phone</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'phone'" :placeholder="'phone'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.phone" />
+      </div>
+      <div class="labelbox mt-20">address</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'address'" :placeholder="'address'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.address" />
+      </div>
+      <div class="labelbox mt-20">city</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'city'" :placeholder="'city'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.city" />
+      </div>
+      <div class="labelbox mt-20">state</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'state'" :placeholder="'state'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.state" />
+      </div>
+      <div class="labelbox mt-20">dateOfBirth</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'dateOfBirth'" :placeholder="'dateOfBirth'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.dateOfBirth" />
+      </div>
+      <div class="labelbox mt-20">gender</div>
+      <div class="inputbox text mt-10">
+        <input type="text" :label="'gender'" :placeholder="'gender'" :icon="false" :single="false" :error="'다시 입력해 주세요'" v-model="formData.gender" />
+      </div>
+      <div class="mt-30">
+        <button type="button" class="btn posi" @click="setMember">가입</button>
+      </div>
 
 
     </div>

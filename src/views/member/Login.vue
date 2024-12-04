@@ -23,8 +23,15 @@
 
 <script setup>
 import { reactive } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { useLoginStore } from '@/stores/member';
+import { storeToRefs } from 'pinia';
 
-import { _login } from '@/api/dev';
+// import { _login } from '@/api/dev';
+
+const router = useRouter();
+const store = useLoginStore();
+// const { userLogin } = storeToRefs(store);
 
 const formData = reactive({
     id: '',
@@ -38,8 +45,7 @@ const login = async () => {
             id: formData.id,
             password: formData.password
         };
-        const result = await _login(params);
-        console.log(result);
+        await store.userLogin(params);
     } catch (error) {
         console.log(error);
     }

@@ -3,22 +3,26 @@
         <div :class="['layout', {flip:state.flipMenu}]">
             <header>
                 <div class="myinfo" >
-                        <div class="fulllogo"><img src="/images/logo.svg" /></div>
-                        <div class="myinfo-btns">
-                            
-                            <div class="myname">
-                                <img src="/images/user-avatar.png" style="width:28px;" />
-                                <span>홍길동</span>
-                            </div>
-                            <div>
-                                <button class="iconbtn ico-alarm"><em>1</em></button>
-                                <button class="iconbtn ico-setting"></button>
-                                <button class="iconbtn ico-logout"></button>
-                            </div>
-
+                    <div class="fulllogo"><img src="/images/logo.svg" /></div>
+                    <div class="myinfo-btns">
+                        
+                        <div class="myname" v-if="userInfo" @click="goMypage">
+                            <img src="/images/user-avatar.png" style="width:28px;" />
+                            <!-- {{ userInfo }} -->
+                            <span>{{ userInfo?.name }}</span>
                         </div>
-                            
+                        <template v-else>
+                            <button class="iconbtn ico-logout" @click="goLogin"></button>
+                        </template>
+                        <div>
+                            <button class="iconbtn ico-alarm"><em>1</em></button>
+                            <button class="iconbtn ico-setting"></button>
+                            <button class="iconbtn ico-logout" @click="logout"></button>
+                        </div>
+
                     </div>
+                        
+                </div>
             </header>
             <div class="contents">
                 <div class="lnb">
@@ -77,9 +81,15 @@ import { RouterLink, RouterView } from 'vue-router';
 import ConfirmModal from '@/plugins/modal/modal/ConfirmModal.vue';
 import { useCommFunc } from '@/core/helper/common.js';
 
+import { useLoginStore } from '@/stores/member';
+import { storeToRefs } from 'pinia';
+
 const { goToPage } = useCommFunc();
 const router = useRouter();
 const route = useRoute();
+const store = useLoginStore();
+const { userInfo } = storeToRefs(store);
+
 const state = reactive({
     menuList: [
         {menu: 'DEV',
@@ -249,6 +259,17 @@ const thisPageCheck = () => {
         }
     });
 };
+
+const goLogin = () => {
+    router.push('/login');
+};
+const goMypage = () => {
+    router.push('/member/info');
+};
+const logout = () => {
+    store.logout();
+};
+
 /**
     * 페이지 초기 접속 시 메뉴 활성화
     * url비교 후 함수 호출
